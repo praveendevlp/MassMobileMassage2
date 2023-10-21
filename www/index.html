@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="MassMobileMassageApp">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="*">
+
+    <title>:: MassMobileMassage ::</title>
+    <style type="text/less">
+        .transition (@value1,@value2:X,...) { @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`; -webkit-transition: @value; -moz-transition: @value; -ms-transition: @value; -o-transition: @value; transition: @value; }
+        .transform (@value1,@value2:X,...) { @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`; transform:@value; -ms-transform:@value; -webkit-transform:@value; -o-transform:@value; -moz-transform:@value; }
+        .border-box { box-sizing:border-box; -moz-box-sizing:border-box; }
+
+        body { font-family:Arial; font-size:14px; }
+        body>span, body>h1 { float:left; width:100%; margin:0; padding:0; margin-bottom:10px; }
+
+        button { width:auto; padding:7px 22px; }
+
+        menu { margin:0; display:none;@menu-width:272px;
+
+        >div { position:absolute; z-index:2; top:0;  width:@menu-width; height:100%; .border-box; .transition(-webkit-transform ease 250ms); .transition(transform ease 250ms);
+        &.left { background: url(images/menu-bg.jpg) no-repeat top center #D1821D;    background-size: 100%;  top: 0; text-align:center; z-index: 9999; position:fixed; left:@menu-width*-1; }
+
+        &.show.left { .transform(translate3d(@menu-width, 0, 0)); }
+
+        &.right { background:#6B1919; right:@menu-width*-1; }
+        &.show.right { .transform(translate3d(@menu-width*-1, 0, 0)); }
+
+        >menu-item { display:block;
+        >div { display:inline-block; width:80%; margin:0; padding:9px 15px; line-height:32px; border-bottom:1px solid #FFF; cursor:pointer; .border-box; color:#ffffff;font-size: 15px;
+        &:hover { color:#ffffff; }
+        >span { float:left; color:inherit; }
+
+
+
+
+        }
+        }
+        }
+        }
+    </style>
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="cordova.js"></script>
+    <script src="cordova_plugins.js"></script>
+    <script src="Angular/angular.min.js" type="text/javascript"></script>
+    <script src="Angular/angular-route.min.js" type="text/javascript"></script>
+    <script src="js/less.min.js"></script>
+    <script src="js/ng-cordova.min.js"></script>
+    <script src="js/angular-sanitize.min.js"></script>
+    <script src="js/angular-animate.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.9/jquery.timepicker.min.js"></script>
+
+
+    <script src="js/app.js" type="text/javascript"></script>
+    <script src="js/controllers.js" type="text/javascript"></script>
+
+</head>
+<body>
+<div  ng-view ng-class="slide"></div>
+</body>
+
+
+</html>
+
+
+
+

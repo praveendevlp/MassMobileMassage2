@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--   <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+       <title>Mass Mobile Massage</title>
+       <link rel="stylesheet" href="css/style.css"/>
+       <link rel="stylesheet" href="css/font-awesome.min.css"/>-->
+</head>
+
+<section class="scr-blue">
+    <header class="top-bar">
+        <div class="header_left"><a ng-click="showLeft($event)">
+                <img src="img/menu-ico.png" width="21" height="21" alt=""></a></div>
+        <div class="header_middle">
+            <h1> Profile </h1>
+        </div>
+        <div class="header_right"><a ng-click="back()" class="left-previus-btn"><i class="fa fa-chevron-circle-left"
+                    aria-hidden="true"></i></a></div>
+        </div>
+    </header>
+    <menu visible="leftVisible" alignment="left" id="menu-left">
+        <nav class="nav-main">
+            <menu-item ng-if="session_token != null">
+                <section class="figure-container">
+                    <figure class="profile-pic"><img src="{{profilePic}}" width="58" height="58" alt=""></figure>
+                    <figcaption class="user-detail"> {{name}} <span> {{address}} </span>
+                    </figcaption>
+                </section>
+            </menu-item>
+            <section class="nav-menu">
+                <ul>
+                    <!-- <li>
+                        <menu-item ng-click="home()">
+                            <img src="img/home.png" width="14" height="18" alt="">
+                            <span> Home </span>
+                        </menu-item>
+                    </li>
+                    <li>
+                        <menu-item ng-click="signinregister()">
+                            <img src="img/account.png" width="17" height="16" alt="">
+                            <span> Account </span>
+                        </menu-item>
+                    </li>
+                    <li>
+                        <menu-item ng-click="bookmassage()">
+                            <img src="img/booking.png" width="15" height="17" alt=""> <span> Book Massage </span>
+                        </menu-item>
+
+                    </li>
+                    <li>
+                        <menu-item ng-click="packages()">
+                            <img src="img/packages.png" width="17" height="18" alt=""> <span> Packages </span>
+                        </menu-item>
+                    </li>
+                    <li>
+                        <menu-item ng-click="membership()">
+                            <img src="img/membership.png" width="15" height="14" alt=""> <span> Membership $89 </span>
+                        </menu-item>
+                    </li>
+                    <li>
+                        <menu-item ng-click="chairmassage()">
+                            <img src="img/chair-massage.png" width="15" height="18" alt=""> <span> Chair massage </span>
+                        </menu-item>
+                    </li>
+                    <li>
+                        <menu-item ng-click="giftcertificate()">
+                            <img src="img/gift-certificate.png" width="15" height="16" alt="">
+                            <span> Gift Certificates </span>
+                        </menu-item>
+                    </li>
+                    <li>
+                        <menu-item ng-click="contactus()">
+                            <img src="img/contact.png" width="17" height="17" alt=""> <span> Contact Us </span>
+                        </menu-item>
+                    </li>
+
+                    <li>
+                        <menu-item ng-click="about()">
+                            <img src="img/about.png" width="14" height="18" alt="">
+                            <span> About </span>
+                        </menu-item>
+                    </li> -->
+                    <li ng-repeat="item in home_menues">
+                        <menu-item ng-click="clickItem(item)">
+                            <img src="img/home.png" width="14" height="18" alt="" ng-if="item.slug === 'home'">
+
+                            <img src="img/account.png" width="17" height="16" alt="" ng-if="item.slug === 'account'">
+                            <img src="img/booking.png" width="15" height="17" alt=""
+                                ng-if="item.slug === 'book_massage'">
+
+                            <img src="img/packages.png" width="17" height="18" alt="" ng-if="item.slug === 'packages'">
+                            <img src="img/membership.png" width="15" height="14" alt=""
+                                ng-if="item.slug === 'membership_99'">
+
+
+                            <img src="img/chair-massage.png" width="15" height="18" alt=""
+                                ng-if="item.slug === 'chair_massage'">
+
+                            <img src="img/gift-certificate.png" width="15" height="16" alt=""
+                                ng-if="item.slug === 'gift_certificate'">
+
+                            <img src="img/contact.png" width="17" height="17" alt="" ng-if="item.slug === 'conatct_us'">
+                            <img src="img/delete.png" width="17" height="17" alt=""
+                                ng-if="item.slug === 'delete_account'">
+                            <img src="img/about.png" width="14" height="18" alt="" ng-if="item.slug === 'about'">
+                            <img src="img/payment.png" width="15" height="15" alt="" ng-if="item.slug === 'payment'">
+
+                            <span>
+                                {{item.name}} </span>
+                        </menu-item>
+
+                    </li>
+                    <li>
+                        <menu-item ng-click="logout()" ng-if="session_token != null">
+                            <img src="img/log-out.png" width="16" height="16" alt="">
+                            <span> Logout </span>
+                        </menu-item>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </menu>
+
+    <div class="main">
+
+        <figure class="profile-img" ng-model="user_image" ng-click="profileEditImageClicked()">
+            <img width="58" height="58" alt="" src="{{profilePic}}" id="ProfileImage">
+        </figure>
+
+        <section class="profile-section">
+            <ul class="profile_list">
+                <li><label> First Name: </label> <input class="txtbx" type="text" ng-model="firstName" id="first_name"
+                        onfocus="this.select();" required="required" placeholder="First Name"></li>
+                <li><label> Last Name: </label> <input class="txtbx" type="text" ng-model="lastName" id="last_name"
+                        onfocus="this.select();" required="required" placeholder="Last Name">
+                </li>
+                <li><label> Phone No. </label> <input class="txtbx" type="tel" maxlength="12" id="phone_no"
+                        ng-model="phone" onfocus="this.select();" required="required" placeholder="Phone"></li>
+                <li><label> Address</label> <input class="txtbx" type="text" ng-model="address1" id="add_ress"
+                        onfocus="this.select();" placeholder="Address"></li>
+
+            </ul>
+        </section>
+
+        <section class="button_set_profile">
+            <aside ng-if="editClick == '0'"><a ng-click="editProfile()" class="btns_profile"> Edit
+                    Profile</a></aside>
+            <aside ng-if="editClick == '1'"><a ng-click="updateProfile()" class="btns_profile">
+                    Update</a></aside>
+            <aside><a ng-click="resetPassword()" class="btns_profile"> Reset Password </a></aside>
+            <aside><a ng-click="logout()" value="" class="btns_profile"> Logout </a></aside>
+        </section>
+
+    </div>
+</section>

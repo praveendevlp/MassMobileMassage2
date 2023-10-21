@@ -1,0 +1,283 @@
+<header class="top-bar">
+    <div class="header_left"><a ng-click="showLeft($event)">
+            <img src="img/menu-ico.png" width="21" height="21" alt=""></a></div>
+    <div class="header_middle">
+        <h1>{{type}}</h1>
+    </div>
+    <div class="header_right"><a ng-click="back()" class="left-previus-btn"><i class="fa fa-chevron-circle-left"
+                aria-hidden="true"></i></a></div>
+    </div>
+</header>
+
+<menu visible="leftVisible" alignment="left" id="menu-left">
+    <nav class="nav-main">
+        <menu-item ng-if="session_token != null">
+            <section class="figure-container">
+                <figure class="profile-pic"><img src="{{profilePic}}" width="58" height="58" alt="">
+                </figure>
+                <figcaption class="user-detail"> {{name}} <span> {{address}} </span></figcaption>
+            </section>
+        </menu-item>
+        <section class="nav-menu">
+            <ul>
+                <!-- <li>
+                    <menu-item ng-click="home()">
+                        <img src="img/home.png" width="14" height="18" alt=""> <span> Home </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="signinregister()">
+                        <img src="img/account.png" width="17" height="16" alt="">
+                        <span> Account </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="bookmassage()">
+                        <img src="img/booking.png" width="15" height="17" alt=""> <span> Book Massage </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="packages()">
+                        <img src="img/packages.png" width="17" height="18" alt="">
+                        <span> Packages </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="membership()">
+                        <img src="img/membership.png" width="15" height="14" alt=""> <span> Membership $89 </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="chairmassage()">
+                        <img src="img/chair-massage.png" width="15" height="18" alt=""> <span> Chair massage </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="giftcertificate()">
+                        <img src="img/gift-certificate.png" width="15" height="16" alt=""> <span> Gift Certificates </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="contactus()">
+                        <img src="img/contact.png" width="17" height="17" alt="">
+                        <span> Contact Us </span>
+                    </menu-item>
+                </li>
+
+                <li>
+                    <menu-item ng-click="about()">
+                        <img src="img/about.png" width="14" height="18" alt=""> <span> About </span>
+                    </menu-item>
+                </li> -->
+                <li ng-repeat="item in home_menues">
+                    <menu-item ng-click="clickItem(item)">
+                        <img src="img/home.png" width="14" height="18" alt="" ng-if="item.slug === 'home'">
+
+                        <img src="img/account.png" width="17" height="16" alt="" ng-if="item.slug === 'account'">
+                        <img src="img/booking.png" width="15" height="17" alt="" ng-if="item.slug === 'book_massage'">
+
+                        <img src="img/packages.png" width="17" height="18" alt="" ng-if="item.slug === 'packages'">
+                        <img src="img/membership.png" width="15" height="14" alt=""
+                            ng-if="item.slug === 'membership_99'">
+
+
+                        <img src="img/chair-massage.png" width="15" height="18" alt=""
+                            ng-if="item.slug === 'chair_massage'">
+
+                        <img src="img/gift-certificate.png" width="15" height="16" alt=""
+                            ng-if="item.slug === 'gift_certificate'">
+
+                        <img src="img/contact.png" width="17" height="17" alt="" ng-if="item.slug === 'conatct_us'">
+                        <img src="img/delete.png" width="17" height="17" alt="" ng-if="item.slug === 'delete_account'">
+                        <img src="img/about.png" width="14" height="18" alt="" ng-if="item.slug === 'about'">
+                        <img src="img/payment.png" width="15" height="15" alt="" ng-if="item.slug === 'payment'">
+
+                        <span>
+                            {{item.name}} </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="logout()" ng-if="session_token != null">
+                        <img src="img/log-out.png" width="16" height="16" alt="">
+                        <span> Logout </span>
+                    </menu-item>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</menu>
+<section class="scr-blue">
+
+    <div class="main">
+
+
+        <div class="mass_type_sec" ng-show="id == '1'" id="massage1">
+            <h3>Massage</h3>
+            <ul>
+                <li ng-repeat="massagess in massages" id="massageType{{massagess.id}}"
+                    ng-click="massageClicked(massagess.id)" value="massagess.id" ng-model="massageTypeValue">
+                    <a>
+
+                        <img src={{massagess.image_path}} width="24" height="26" alt="">
+                        <span> {{massagess.name}} </span>
+                    </a>
+                </li>
+            </ul>
+
+
+        </div>
+
+        <div ng-show="id == '2'|| id == '3'" id="massage2">
+
+            <div class="mass_type_sec">
+
+                <h3>Massage 1</h3>
+                <ul>
+                    <li ng-repeat="massagess in massages" id="massageType1{{massagess.id}}"
+                        ng-click="massage1Clicked(massagess.id)" value="massagess.id" ng-model="massageTypeValue1">
+                        <a>
+
+                            <img src={{massagess.image_path}} width="24" height="26" alt="">
+                            <span> {{massagess.name}} </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mass_type_sec">
+                <h3>Massage 2</h3>
+                <ul>
+                    <li ng-repeat="massagess in massages" id="massageType2{{massagess.id}}"
+                        ng-click="massage2Clicked(massagess.id)" value="massagess.id" ng-model="massageTypeValue2">
+                        <a>
+
+                            <img src={{massagess.image_path}} width="24" height="26" alt="">
+                            <span> {{massagess.name}} </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="duration_sec">
+                <h3>Duration</h3>
+                <ul>
+                    <li ng-repeat="duration in durations" value="duration.id" ng-click="durationsClicked(duration.id)"
+                        ng-model="durationValue">
+                        <a id="DurationID{{duration.id}}"> {{duration.duration}} Min</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="prefretion_sec" ng-show="id == '1'|| id == '3'">
+
+                <ul>
+                    <li><select ng-model="gender">
+                            <option value="">Therapist gender preference</option>
+                            <option ng-repeat="therapist_genderss in therapist_genders"
+                                value="{{therapist_genderss.id }}">{{ therapist_genderss.name }}
+                            </option>
+                        </select></li>
+
+                </ul>
+
+            </div>
+
+            <div class="prefretion_sec" ng-show="id == '2'">
+                <h3>Massage 1 Gender</h3>
+                <ul>
+                    <li><select ng-model="gender1">
+                            <option value="">Therapist gender preference</option>
+                            <option ng-repeat="therapist_genderss in therapist_genders"
+                                value="{{therapist_genderss.id }}">{{ therapist_genderss.name }}
+                            </option>
+                        </select></li>
+
+                </ul>
+                <h3>Massage 2 Gender</h3>
+                <ul>
+                    <li><select ng-model="gender2">
+                            <option value="">Therapist gender preference</option>
+                            <option ng-repeat="therapist_genderss in therapist_genders"
+                                value="{{therapist_genderss.id }}">{{ therapist_genderss.name }}
+                            </option>
+                        </select></li>
+
+                </ul>
+
+            </div>
+
+            <div class="prefretion_sec">
+
+                <ul>
+                    <li><select ng-model="massagefor">
+                            <option value="">This massage is for</option>
+                            <option ng-repeat="massage_is_forr in massage_is_for" value="{{massage_is_forr.id }}">{{
+                                massage_is_forr.name }}
+                            </option>
+                        </select></li>
+                    <li><textarea name="specialinstructions" ng-model="instruction"
+                            placeholder="Special instructions or conditions such as injuries, allergies to nuts etc."></textarea>
+                    </li>
+                    <div><span class="price_view"> <span ng-click=showPopUp()> Price View </span> </span></div>
+
+                </ul>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <section class="popup" ng-show="isVisible">
+        <div class="main">
+            <div class="popup-logo-p">
+                <div class="container">
+
+                    <section class="circle_price_container">
+                        <aside class="price_circle"> {{discount_first_treatment1}}% <span>Off</span>
+                        </aside>
+                    </section>
+                    <aside class="txt-h3 head">First Treatment</aside>
+
+                    <div class="txt-h3" ng-repeat="pricess in pricePercentage">
+
+                        <span class="pr_big"> {{pricess.duration}} </span>
+                        <span class="min">Min = </span>
+                        <span class="pr_big">$ {{pricess.percentage}} </span>
+
+
+                    </div>
+                    <aside class="price_reg"> Regular Prices</aside>
+                    <section class="treatment_price_container">
+                        <div class="price_section col3" ng-repeat="pricess in prices">
+                            <div class="price_inner">
+                                <strong class="pri_strong">{{pricess.duration}} </strong>
+                                <span class="min">Min</span>
+                                <span class="pr_big"> ${{pricess.price}} </span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <aside class="price_reg" ng-click="gotoPackages()"><u> {{price_label_1}} </u></aside>
+                    <aside class="price_reg" ng-click="wellMembership()"><u> {{price_label_2}} </u></aside>
+
+                </div>
+            </div>
+        </div>
+        <div class="closearea">
+            <a class="close-pop" ng-click="closePopUp()"> <span class="pop_cross"> <i class="fa fa-times-circle-o"
+                        aria-hidden="true"></i> </span> </a>
+        </div>
+    </section>
+
+
+    <aside class="fix-footer-btn" ng-click="submsgnextClicked()"><a>NEXT</a>
+
+    </aside>
+</section>
+<div id="veil" ng-show="isLoading"></div>
+<div id="feedLoading" ng-show="isLoading"></div>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<section class="scr-blue">
+    <header class="top-bar">
+        <div class="header_left"> &nbsp; </div>
+        <div class="header_middle"> <h1> Prices </h1> </div>
+        <div class="header_right"><a ng-click="back()" class="left-previus-btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></div></div>
+    </header>
+
+    <div class="main">
+        <div class="container">
+
+            <section class="circle_price_container">
+                <aside class="price_circle"> {{discount_first_treatment}}% <span>Off</span></aside>
+            </section>
+            <aside class="txt-h3 head">First Treatment</aside>
+
+            <div class="txt-h3" ng-repeat = "pricess in prices12">
+
+                <span class="pr_big"> {{pricess.duration}} </span>
+                <span class="min">Min = </span>
+                <span class="pr_big">$ {{pricess.price_for_first_time_treatment}} </span>
+
+
+            </div>
+            <aside class="price_reg"> Regular Prices </aside> 
+            <section class="treatment_price_container">
+                <div class="price_section col3" ng-repeat = "pricess in prices12">
+
+
+                    <div class="price_inner">
+
+                        <strong class="pri_strong">{{pricess.duration}} </strong>
+                        <span class="min">Min</span>
+                        <span class="pr_big">  ${{pricess.price}} </span>
+                    </div>
+                </div>
+
+
+
+
+            </section>
+
+        </div>
+    </div>
+
+</section>
+</body>
+</html>
+<div id="veil" ng-show="isLoading"></div>
+<div id="feedLoading" ng-show="isLoading"></div>

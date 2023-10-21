@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<!--
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+    <title>Mass Mobile Massage</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+</head>
+-->
+
+<header class="top-bar">
+    <div class="header_left"><a ng-click="showLeft($event)">
+            <img src="img/menu-ico.png" width="21" height="21" alt=""></a></div>
+    <div class="header_middle">
+        <h1> Forgot Password </h1>
+    </div>
+    <div class="header_right"><a ng-click="back()" class="left-previus-btn"><i class="fa fa-chevron-circle-left"
+                aria-hidden="true"></i></a></div>
+    </div>
+</header>
+
+<menu visible="leftVisible" alignment="left" id="menu-left">
+    <nav class="nav-main">
+        <menu-item ng-if="session_token != null">
+            <section class="figure-container">
+                <figure class="profile-pic"><img src="{{profilePic}}" width="58" height="58" alt="">
+                </figure>
+                <figcaption class="user-detail"> {{name}} <span> {{address}} </span></figcaption>
+            </section>
+        </menu-item>
+        <section class="nav-menu">
+            <ul>
+                <!-- <li>
+                    <menu-item ng-click="home()">
+                        <img src="img/home.png" width="14" height="18" alt=""> <span> Home </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="signinregister()">
+                        <img src="img/account.png" width="17" height="16" alt="">
+                        <span> Account </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="bookmassage()">
+                        <img src="img/booking.png" width="15" height="17" alt=""> <span> Book Massage </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="packages()">
+                        <img src="img/packages.png" width="17" height="18" alt="">
+                        <span> Packages </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="membership()">
+                        <img src="img/membership.png" width="15" height="14" alt=""> <span> Membership $89 </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="chairmassage()">
+                        <img src="img/chair-massage.png" width="15" height="18" alt=""> <span> Chair massage </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="giftcertificate()">
+                        <img src="img/gift-certificate.png" width="15" height="16" alt=""> <span> Gift Certificates </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="contactus()">
+                        <img src="img/contact.png" width="17" height="17" alt="">
+                        <span> Contact Us </span>
+                    </menu-item>
+                </li>
+
+                <li>
+                    <menu-item ng-click="about()">
+                        <img src="img/about.png" width="14" height="18" alt=""> <span> About </span>
+                    </menu-item>
+                </li> -->
+                <li ng-repeat="item in home_menues">
+                    <menu-item ng-click="clickItem(item)">
+                        <img src="img/home.png" width="14" height="18" alt="" ng-if="item.slug === 'home'">
+
+                        <img src="img/account.png" width="17" height="16" alt="" ng-if="item.slug === 'account'">
+                        <img src="img/booking.png" width="15" height="17" alt="" ng-if="item.slug === 'book_massage'">
+
+                        <img src="img/packages.png" width="17" height="18" alt="" ng-if="item.slug === 'packages'">
+                        <img src="img/membership.png" width="15" height="14" alt=""
+                            ng-if="item.slug === 'membership_99'">
+
+
+                        <img src="img/chair-massage.png" width="15" height="18" alt=""
+                            ng-if="item.slug === 'chair_massage'">
+
+                        <img src="img/gift-certificate.png" width="15" height="16" alt=""
+                            ng-if="item.slug === 'gift_certificate'">
+
+                        <img src="img/contact.png" width="17" height="17" alt="" ng-if="item.slug === 'conatct_us'">
+                        <img src="img/delete.png" width="17" height="17" alt="" ng-if="item.slug === 'delete_account'">
+                        <img src="img/about.png" width="14" height="18" alt="" ng-if="item.slug === 'about'">
+                        <img src="img/payment.png" width="15" height="15" alt="" ng-if="item.slug === 'payment'">
+
+                        <span>
+                            {{item.name}} </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="logout()" ng-if="session_token != null">
+                        <img src="img/log-out.png" width="16" height="16" alt="">
+                        <span> Logout </span>
+                    </menu-item>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</menu>
+<section class="form_sec_main">
+    <form method="" action="" name="">
+        <ul class="login_form">
+            <li><input type="email" placeholder="Enter email" required="required" ng-model="email"
+                    ng-pattern="/^[_a-zA-Z0-9]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,4})$/">
+            </li>
+            <li class="no_bdr"><input class="sub_btn" type="submit" value="Send New password" ng-click="sendPassword()">
+            </li>
+        </ul>
+    </form>
+
+
+</section>
+
+<div id="veil" ng-show="isLoading"></div>
+<div id="feedLoading" ng-show="isLoading"></div>

@@ -1,0 +1,173 @@
+<header class="top-bar">
+    <div class="header_left"><a ng-click="showLeft($event)">
+            <img src="img/menu-ico.png" width="21" height="21" alt=""></a></div>
+    <div class="header_middle">
+        <h1>Payment</h1>
+    </div>
+    <div class="header_right">
+        <a ng-click="back()" class="left-previus-btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a>
+
+    </div>
+</header>
+
+<menu visible="leftVisible" alignment="left" id="menu-left">
+    <nav class="nav-main">
+        <menu-item ng-if="session_token != null">
+            <section class="figure-container">
+                <figure class="profile-pic"><img src="{{profilePic}}" width="58" height="58" alt="">
+                </figure>
+                <figcaption class="user-detail"> {{name}} <span> {{address}} </span></figcaption>
+            </section>
+        </menu-item>
+        <section class="nav-menu">
+            <ul>
+                <!-- <li>
+                    <menu-item ng-click="home()">
+                        <img src="img/home.png" width="14" height="18" alt=""> <span> Home </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="signinregister()">
+                        <img src="img/account.png" width="17" height="16" alt="">
+                        <span> Account </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="bookmassage()">
+                        <img src="img/booking.png" width="15" height="17" alt=""> <span> Book Massage </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="packages()">
+                        <img src="img/packages.png" width="17" height="18" alt="">
+                        <span> Packages </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="membership()">
+                        <img src="img/membership.png" width="15" height="14" alt=""> <span> Membership $89 </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="chairmassage()">
+                        <img src="img/chair-massage.png" width="15" height="18" alt=""> <span> Chair massage </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="giftcertificate()">
+                        <img src="img/gift-certificate.png" width="15" height="16" alt=""> <span> Gift Certificates </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="contactus()">
+                        <img src="img/contact.png" width="17" height="17" alt="">
+                        <span> Contact Us </span>
+                    </menu-item>
+                </li>
+
+                <li>
+                    <menu-item ng-click="about()">
+                        <img src="img/about.png" width="14" height="18" alt=""> <span> About </span>
+                    </menu-item>
+                </li> -->
+                <li ng-repeat="item in home_menues">
+                    <menu-item ng-click="clickItem(item)">
+                        <img src="img/home.png" width="14" height="18" alt="" ng-if="item.slug === 'home'">
+
+                        <img src="img/account.png" width="17" height="16" alt="" ng-if="item.slug === 'account'">
+                        <img src="img/booking.png" width="15" height="17" alt="" ng-if="item.slug === 'book_massage'">
+
+                        <img src="img/packages.png" width="17" height="18" alt="" ng-if="item.slug === 'packages'">
+                        <img src="img/membership.png" width="15" height="14" alt=""
+                            ng-if="item.slug === 'membership_99'">
+
+
+                        <img src="img/chair-massage.png" width="15" height="18" alt=""
+                            ng-if="item.slug === 'chair_massage'">
+
+                        <img src="img/gift-certificate.png" width="15" height="16" alt=""
+                            ng-if="item.slug === 'gift_certificate'">
+
+                        <img src="img/contact.png" width="17" height="17" alt="" ng-if="item.slug === 'conatct_us'">
+                        <img src="img/delete.png" width="17" height="17" alt="" ng-if="item.slug === 'delete_account'">
+                        <img src="img/about.png" width="14" height="18" alt="" ng-if="item.slug === 'about'">
+                        <img src="img/payment.png" width="15" height="15" alt="" ng-if="item.slug === 'payment'">
+
+                        <span>
+                            {{item.name}} </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="logout()" ng-if="session_token != null">
+                        <img src="img/log-out.png" width="16" height="16" alt="">
+                        <span> Logout </span>
+                    </menu-item>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</menu>
+
+
+<section class="card_main" >
+ <iframe src=''  frameborder="0" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;height:500px;width:100%;position:absolute;top:50px;left:0px;right:0px;bottom:0px" height="600px" width="100%" id="paymentiframe"></iframe>
+    <div class="fit-main" style="width:95%;" hidden>
+        <section class="few-details payment-card">
+            <h3> Card Type </h3>
+            <aside class="card-slec">
+                <input type="radio" name="group1" id="visa" value="Visa" ng-model="card_type" /><label for="visa"> <img
+                        width="47" height="26" alt="" src="img/visa-card.jpg">
+                </label>
+                <input type="radio" name="group1" id="master" value="Master" ng-model="card_type" /><label for="master">
+                    <img width="48" height="26" alt="" src="img/master-card.jpg">
+                </label>
+                <input type="radio" name="group1" id="american" value="American" ng-model="card_type" /><label
+                    for="american"> <img width="50" height="28" alt="" src="img/american-exp-card.jpg">
+                </label>
+                <input type="radio" name="group1" id="club" value="Club" ng-model="card_type" /><label for="club"> <img
+                        width="48" height="26" alt="" src="img/club-card.jpg">
+                </label>
+                <aside>
+                </aside>
+            </aside>
+        </section>
+        <section class="payment-div few-details">
+            <ul>
+                <li><input type="tel" class="txt" placeholder="Card No" ng-model="cardno" ng-minlength="12"
+                        ng-maxlength="20"></li>
+                <li><input type="text" class="txt" placeholder="Name On Card" ng-model="nameoncard">
+                </li>
+                <li class="expi"> Expiry Date <span> CVV </span></li>
+            </ul>
+        </section>
+
+        <section class="card-details-sec">
+            <ul>
+                <li><select class="txt pay-details-txt" ng-model="month" required>.
+                        <option value=""> MM</option>
+                        <option ng-repeat="monthss in monthsarray" value={{monthss}}>{{monthss}}
+                        </option>
+                    </select></li>
+                <li><select class="txt pay-details-txt" ng-model="year" required>
+                        <option value=""> YYYY</option>
+                        <option ng-repeat="years in yearsArray" value={{years}}>{{years}}</option>
+                    </select></li>
+                <li><input type="tel" class="txt pay-details-txt" placeholder="123" ng-model="cvvno" minlength="3"
+                        maxlength="3"></li>
+            </ul>
+            <aside class="regi-btn-sec">
+                <button class="paybtn" type="button" ng-click="proceedClick()"> PROCEED</button>
+            </aside>
+        </section>
+
+
+    </div>
+
+
+</section>
+
+<div id="veil" ng-show="isLoading"></div>
+<div id="feedLoading" ng-show="isLoading"></div>

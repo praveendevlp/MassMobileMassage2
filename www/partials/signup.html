@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<!--
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+    <title>Mass Mobile Massage</title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+</head>
+-->
+
+<header class="top-bar">
+    <div class="header_left"><a ng-click="showLeft($event)">
+            <img src="img/menu-ico.png" width="21" height="21" alt=""></a></div>
+    <div class="header_middle">
+        <h1> Register Form </h1>
+    </div>
+    <div class="header_right"><a ng-click="back()" class="left-previus-btn"><i class="fa fa-chevron-circle-left"
+                aria-hidden="true"></i></a></div>
+    </div>
+</header>
+
+<menu visible="leftVisible" alignment="left" id="menu-left">
+    <nav class="nav-main">
+        <menu-item ng-if="session_token != null">
+            <section class="figure-container">
+                <figure class="profile-pic"><img src="{{profilePic}}" width="58" height="58" alt="">
+                </figure>
+                <figcaption class="user-detail"> {{name}} <span> {{address}} </span></figcaption>
+            </section>
+        </menu-item>
+        <section class="nav-menu">
+            <ul>
+                <!-- <li>
+                    <menu-item ng-click="home()">
+                        <img src="img/home.png" width="14" height="18" alt=""> <span> Home </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="signinregister()">
+                        <img src="img/account.png" width="17" height="16" alt="">
+                        <span> Account </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="bookmassage()">
+                        <img src="img/booking.png" width="15" height="17" alt=""> <span> Book Massage </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="packages()">
+                        <img src="img/packages.png" width="17" height="18" alt="">
+                        <span> Packages </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="membership()">
+                        <img src="img/membership.png" width="15" height="14" alt=""> <span> Membership $89 </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="chairmassage()">
+                        <img src="img/chair-massage.png" width="15" height="18" alt=""> <span> Chair massage </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="giftcertificate()">
+                        <img src="img/gift-certificate.png" width="15" height="16" alt=""> <span> Gift Certificates </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="contactus()">
+                        <img src="img/contact.png" width="17" height="17" alt="">
+                        <span> Contact Us </span>
+                    </menu-item>
+                </li>
+
+                <li>
+                    <menu-item ng-click="about()">
+                        <img src="img/about.png" width="14" height="18" alt=""> <span> About </span>
+                    </menu-item>
+                </li> -->
+                <li ng-repeat="item in home_menues">
+                    <menu-item ng-click="clickItem(item)">
+                        <img src="img/home.png" width="14" height="18" alt="" ng-if="item.slug === 'home'">
+
+                        <img src="img/account.png" width="17" height="16" alt="" ng-if="item.slug === 'account'">
+                        <img src="img/booking.png" width="15" height="17" alt="" ng-if="item.slug === 'book_massage'">
+
+                        <img src="img/packages.png" width="17" height="18" alt="" ng-if="item.slug === 'packages'">
+                        <img src="img/membership.png" width="15" height="14" alt=""
+                            ng-if="item.slug === 'membership_99'">
+
+
+                        <img src="img/chair-massage.png" width="15" height="18" alt=""
+                            ng-if="item.slug === 'chair_massage'">
+
+                        <img src="img/gift-certificate.png" width="15" height="16" alt=""
+                            ng-if="item.slug === 'gift_certificate'">
+
+                        <img src="img/contact.png" width="17" height="17" alt="" ng-if="item.slug === 'conatct_us'">
+                        <img src="img/delete.png" width="17" height="17" alt="" ng-if="item.slug === 'delete_account'">
+                        <img src="img/about.png" width="14" height="18" alt="" ng-if="item.slug === 'about'">
+                        <img src="img/payment.png" width="15" height="15" alt="" ng-if="item.slug === 'payment'">
+
+                        <span>
+                            {{item.name}} </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="logout()" ng-if="session_token != null">
+                        <img src="img/log-out.png" width="16" height="16" alt="">
+                        <span> Logout </span>
+                    </menu-item>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</menu>
+<section class="form_sec_main">
+    <form method="" action="" name="">
+        <ul class="signup_form">
+            <!--<li> <input type="text" placeholder="Username" required="required"  ng-model="user_name">
+
+            </li>
+                <span ng-if="user_name_exist" style="color:red;">Someone already has this username. Try another?</span>-->
+            <li><input type="text" placeholder="First Name" required="required" ng-model="firstName"></li>
+            <li><input type="text" placeholder="Last Name" required="required" ng-model="lastName">
+            </li>
+            <li><input type="email" placeholder="Email" required="required" ng-model="email"
+                    ng-pattern="/^[_a-zA-Z0-9]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,4})$/">
+            </li>
+
+            <li><input type="password" placeholder="Password" required="required" ng-model="password"></li>
+            <li><input type="password" placeholder="Confirm Password" required="required" ng-model="confirmPassword">
+            </li>
+
+            <li><input type="tel" placeholder="Phone" required="required" ng-model="number" maxlength="12"></li>
+            <li><input type="text" placeholder="Date Of Birth" value="2011-01-13" readonly ng-click="selectDob()"
+                    ng-model="dob" /></li>
+            <li><input placeholder="Referred By" type="text" ng-model="referred"></li>
+            <li><input type="text" placeholder="Location of massage" ng-model="addLineone"></li>
+            <li><input type="text" type="number" placeholder="Apt # / Floor" ng-model="addLinetwo">
+            </li>
+
+            <li><input type="text" placeholder="City " ng-model="city "></li>
+            <li><input type="text" placeholder="State" ng-model="state"></li>
+            <li><input type="tel" placeholder="Zip Code" ng-model="zipcode"></li>
+        </ul>
+
+        <ul>
+            <li><input type="checkbox" ng-model="checkbox" ng-change="checkboxClick()">Billing
+                address is same as massage location
+            </li>
+            <li ng-hide="checkbox"><input type="text" placeholder="Billing Address" ng-model="billing_address_line_1">
+            </li>
+            <li ng-hide="checkbox"><input type="text" placeholder="City " ng-model="billing_city">
+            </li>
+            <li ng-hide="checkbox"><input type="text" placeholder="State " ng-model="billing_state">
+            </li>
+            <li ng-hide="checkbox"><input type="tel" placeholder="Zip Code" ng-model="billing_zipcode"></li>
+            <!--   <li ng-hide="checkbox"> <input type="text" placeholder="Billing Address line 2" ng-model="billingaddLinetwo"></li>-->
+
+        </ul>
+
+        <aside class="fix-footer-btn"><input type="submit" value="Register" ng-click="registerClick()"></aside>
+    </form>
+</section>
+
+
+<div id="veil" ng-show="isLoading"></div>
+<div id="feedLoading" ng-show="isLoading"></div>

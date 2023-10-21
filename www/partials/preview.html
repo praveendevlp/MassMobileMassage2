@@ -1,0 +1,54 @@
+<html><head>
+    <meta content="initial-scale=1.0, user-scalable=no, width=device-width" name="viewport">
+    <title>Mass Mobile Massage</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body><section class="scr-blue">
+    <header class="top-bar">
+        <div class="header_left"> <a class="left-previus-btn" ng-click="backToGift()">
+            <i aria-hidden="true" class="fa fa-chevron-circle-left"></i></a> </div>
+        <div class="header_middle"> <h1> Preview </h1> </div>
+        <div class="header_right">
+          <!--  <a ng-click="back()" class="left-previus-btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a>-->
+            <!--<span class="cart-icon"> <i aria-hidden="true" class="fa fa-shopping-cart"></i> <span>{{cart_count}}</span> </span>-->
+            <!--<span ng-if="session_token != null" class="cart-icon"> <i aria-hidden="true" class="fa fa-shopping-cart"></i> <span>{{cart_count}}</span> </span>-->
+        </div>
+    </header>
+
+
+    <div class="main">
+        <div class="container">
+            <aside class="gift-card-head"> Gift Certificate </aside>
+            <aside class="gift-card-head" ng-model="packagename"> {{packagename}} </aside>
+
+            <section class="gift_form">
+                <ul>
+                    <li class="frto">From</li>
+                    <li><span class="gft-txt-lbl"> Name:</span>
+                        <input type="text" placeholder="Sender's Name" class="gift-txt" ng-model="name1" ></li>
+                    <li><span class="gft-txt-lbl"> Email:</span>
+                        <input type="email" placeholder="Sender's Email" class="gift-txt" ng-model="email1" ng-pattern="/^[_a-zA-Z0-9]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,4})$/" > </li>
+
+                    <li class="frto">To</li>
+
+                    <li> <span class="gft-txt-lbl"> Name:</span>
+                        <input type="text" placeholder="Receiver's Name" class="gift-txt" ng-model="name2"></li>
+                    <li><span class="gft-txt-lbl" > Email: </span>
+                        <input type="email" placeholder="Receiver's Email" class="gift-txt" ng-model="email2" ng-pattern="/^[_a-zA-Z0-9]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,4})$/"></li>
+                </ul>
+                <li> <textarea style="width:100%;padding: 10px;background: #0a619e;border: 1px solid #2b95e0;color: #fff;height: 100px;"  ng-model="message"placeholder="Message.." > </textarea> </li>
+            </section>
+
+
+        </div>
+    </div>
+</section>
+<aside class="fix-footer-btn"> <a  class="preview_btn"   ng-click = "previewbtnClick()" >Preview</a>
+    <a  ng-show="addCart == '0'" class="add_cart_btn"  ng-click = "addtocartClick()">Add To Cart</a>
+    <a  ng-show="addCart == '1'" class="add_cart_btn"  ng-click = "goToCartClick()">Go To Cart</a> </aside>
+
+</body>
+
+</html>

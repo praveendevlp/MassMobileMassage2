@@ -1,0 +1,215 @@
+<section class="scr-blue">
+    <header class="top-bar">
+        <div class="header_left"><a ng-click="showLeft($event)">
+                <img src="img/menu-ico.png" width="21" height="21" alt=""></a></div>
+        <div class="header_middle">
+            <h1> Packages </h1>
+        </div>
+        <div class="header_right"><a ng-click="back()" class="left-previus-btn"><i class="fa fa-chevron-circle-left"
+                    aria-hidden="true"></i></a></div>
+        </div>
+    </header>
+
+    <menu visible="leftVisible" alignment="left" id="menu-left">
+        <nav class="nav-main">
+            <menu-item ng-if="session_token != null">
+                <section class="figure-container">
+                    <figure class="profile-pic"><img src="{{profilePic}}" width="58" height="58" alt=""></figure>
+                    <figcaption class="user-detail"> {{name}} <span> {{address}} </span>
+                    </figcaption>
+                </section>
+            </menu-item>
+            <section class="nav-menu">
+                <ul>
+                    <!-- <li>
+                        <menu-item ng-click="home()">
+                            <img src="img/home.png" width="14" height="18" alt="">
+                            <span> Home </span>
+                        </menu-item>
+                    </li>
+                    <li>
+                        <menu-item ng-click="signinregister()">
+                            <img src="img/account.png" width="17" height="16" alt="">
+                            <span> Account </span>
+                        </menu-item>
+                    </li>
+                    <li>
+                        <menu-item ng-click="bookmassage()">
+                            <img src="img/booking.png" width="15" height="17" alt=""> <span> Book Massage </span>
+                        </menu-item>
+                    </li>
+                    <li>
+                        <menu-item ng-click="packages()">
+                            <img src="img/packages.png" width="17" height="18" alt=""> <span> Packages </span>
+                        </menu-item>
+                    </li>
+                    <li>
+                        <menu-item ng-click="membership()">
+                            <img src="img/membership.png" width="15" height="14" alt=""> <span> Membership $89 </span>
+                        </menu-item>
+                    </li>
+                    <li>
+                        <menu-item ng-click="chairmassage()">
+                            <img src="img/chair-massage.png" width="15" height="18" alt=""> <span> Chair massage </span>
+                        </menu-item>
+                    </li>
+                    <li>
+                        <menu-item ng-click="giftcertificate()">
+                            <img src="img/gift-certificate.png" width="15" height="16" alt="">
+                            <span> Gift Certificates </span>
+                        </menu-item>
+                    </li>
+                    <li>
+                        <menu-item ng-click="contactus()">
+                            <img src="img/contact.png" width="17" height="17" alt=""> <span> Contact Us </span>
+                        </menu-item>
+                    </li>
+
+                    <li>
+                        <menu-item ng-click="about()">
+                            <img src="img/about.png" width="14" height="18" alt="">
+                            <span> About </span>
+                        </menu-item>
+                    </li> -->
+                    <li ng-repeat="item in home_menues">
+                        <menu-item ng-click="clickItem(item)">
+                            <img src="img/home.png" width="14" height="18" alt="" ng-if="item.slug === 'home'">
+
+                            <img src="img/account.png" width="17" height="16" alt="" ng-if="item.slug === 'account'">
+                            <img src="img/booking.png" width="15" height="17" alt=""
+                                ng-if="item.slug === 'book_massage'">
+
+                            <img src="img/packages.png" width="17" height="18" alt="" ng-if="item.slug === 'packages'">
+                            <img src="img/membership.png" width="15" height="14" alt=""
+                                ng-if="item.slug === 'membership_99'">
+
+
+                            <img src="img/chair-massage.png" width="15" height="18" alt=""
+                                ng-if="item.slug === 'chair_massage'">
+
+                            <img src="img/gift-certificate.png" width="15" height="16" alt=""
+                                ng-if="item.slug === 'gift_certificate'">
+
+                            <img src="img/contact.png" width="17" height="17" alt="" ng-if="item.slug === 'conatct_us'">
+                            <img src="img/delete.png" width="17" height="17" alt=""
+                                ng-if="item.slug === 'delete_account'">
+                            <img src="img/about.png" width="14" height="18" alt="" ng-if="item.slug === 'about'">
+                            <img src="img/payment.png" width="15" height="15" alt="" ng-if="item.slug === 'payment'">
+
+                            <span>
+                                {{item.name}} </span>
+                        </menu-item>
+
+                    </li>
+                    <li>
+                        <menu-item ng-click="logout()" ng-if="session_token != null">
+                            <img src="img/log-out.png" width="16" height="16" alt="">
+                            <span> Logout </span>
+                        </menu-item>
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </menu>
+
+    <div class="main" style="overflow-y: scroll;">
+        <div class="packages_col" ng-repeat="massagetype in value" id="packageType1{{massagetype.id}}"
+            ng-click="packageClicked(massagetype)" value="massagetype.id" ng-model="package">
+            <div class="packages_inner">
+                <ul>
+                    <li class="pack_4x60">{{massagetype.title}} <br> ({{massagetype.discount}}% Off)
+                    </li>
+                    <li><span>$</span> <strong>{{massagetype.each_price}}</strong> <sub>ea.</sub>
+                    </li>
+
+                    <li><b>{{massagetype.description}}</b></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <aside class="terms"><a ng-click="termConditionClick()"> *Terms &amp; Conditions</a>
+            <span>| </span> <a ng-click="privacyClick()">Privacy Policy</a>
+        </aside>
+        <div><input type="number" placeholder="Random Price" ng-model="pricerandom" class="pckinput" id="random"></div>
+        <div class="pay_other"><span ng-click="payotherClick()"> Pay Other Amount </span></div>
+        <aside class="static_btn" id="proceed_chk_btn" ng-click="BuyNow()" style="position:fixed;bottom:0;"><a>Proceed
+                to check out</a></aside>
+
+
+    </div>
+
+
+</section>
+<div id="veil" ng-show="isLoading"></div>
+<div id="feedLoading" ng-show="isLoading"></div>
+
+
+<section class="pack_popup_main" ng-show="isVisible">
+
+    <aside class="pack_popup">
+        <h2> Gratutiy </h2>
+        <input type="text" placeholder="$0" ng-model="tip_price">
+        <div class="pop_btn_set"><span ng-click="confirm()"> Confirm </span> <span class="cancel"
+                ng-click="closePopUp()"> Cancel</span>
+        </div>
+    </aside>
+
+
+</section>
+
+
+<section class="popup" ng-show="beforePaymentTermsConditionPopUp">
+    <div class="main">
+        <div class="popup-logo-p">
+            <div class="container">
+
+                <div style="color: white; font-size: 18px; width: 100%; margin-bottom: 15px;">
+
+                    <p><input type="checkbox" ng-model="isChecked" ng-click="checkBoxClicked()" /><span
+                            style="color: red;">*</span>Please
+                        select our Terms &&nbsp; Conidtions</p>
+
+
+                </div>
+
+                <p ng-bind-html="termsdescription | unsafe" style="color:white;"></p>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="closearea">
+        <a class="close-pop" ng-click="beforePaymentTermsConditionPopUpClose()">
+            <span class="pop_cross"> <i class="fa fa-times-circle-o" aria-hidden="true"></i> </span>
+        </a>
+    </div>
+</section>
+
+
+<section class="popup" ng-show="proceedToCheckOutPopUp">
+    <div class="main">
+        <div class="popup-logo-p">
+            <div class="container">
+                <div style="color: white; font-size: 18px; width: 100%; margin-bottom: 15px;">
+
+                    <p><input type="checkbox" ng-model="proceedToCheckOutisChecked"
+                            ng-click="proceedToCheckOutcheckBoxClicked()" /><span style="color: red;">*</span>Please
+                        select our Terms &&nbsp; Conidtions
+                    </p>
+
+
+                </div>
+
+                <p ng-bind-html="proceedToCheckOutdescription | unsafe" style="color:white;"></p>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="closearea">
+        <a class="close-pop" ng-click="proceedToCheckOutPopUpClose()">
+            <span class="pop_cross"> <i class="fa fa-times-circle-o" aria-hidden="true"></i> </span>
+        </a>
+    </div>
+</section>

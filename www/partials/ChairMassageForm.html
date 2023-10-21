@@ -1,0 +1,183 @@
+<header class="top-bar">
+    <div class="header_left"><a ng-click="showLeft($event)">
+            <img src="img/menu-ico.png" width="21" height="21" alt=""></a></div>
+    <div class="header_middle">
+        <h1>Chair Massage Quote</h1>
+    </div>
+    <div class="header_right"><a ng-click="back()" class="left-previus-btn"><i class="fa fa-chevron-circle-left"
+                aria-hidden="true"></i></a></div>
+    </div>
+</header>
+<menu visible="leftVisible" alignment="left" id="menu-left">
+    <nav class="nav-main">
+        <menu-item ng-if="session_token != null">
+            <section class="figure-container">
+                <figure class="profile-pic"><img src="{{profilePic}}" width="58" height="58" alt="">
+                </figure>
+                <figcaption class="user-detail"> {{name}} <span> {{address}} </span></figcaption>
+            </section>
+        </menu-item>
+        <section class="nav-menu">
+            <ul>
+
+                <!-- <li>
+                    <menu-item ng-click="home()">
+                        <img src="img/home.png" width="14" height="18" alt=""> <span> Home </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="signinregister()">
+                        <img src="img/account.png" width="17" height="16" alt="">
+                        <span> Account </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="bookmassage()">
+                        <img src="img/booking.png" width="15" height="17" alt=""> <span> Book Massage </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="packages()">
+                        <img src="img/packages.png" width="17" height="18" alt="">
+                        <span> Packages </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="membership()">
+                        <img src="img/membership.png" width="15" height="14" alt=""> <span> Membership $89 </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="chairmassage()">
+                        <img src="img/chair-massage.png" width="15" height="18" alt=""> <span> Chair massage </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="giftcertificate()">
+                        <img src="img/gift-certificate.png" width="15" height="16" alt=""> <span> Gift Certificates </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="contactus()">
+                        <img src="img/contact.png" width="17" height="17" alt="">
+                        <span> Contact Us </span>
+                    </menu-item>
+                </li>
+
+                <li>
+                    <menu-item ng-click="about()">
+                        <img src="img/about.png" width="14" height="18" alt=""> <span> About </span>
+                    </menu-item>
+                </li> -->
+                <li ng-repeat="item in home_menues">
+                    <menu-item ng-click="clickItem(item)">
+                        <img src="img/home.png" width="14" height="18" alt="" ng-if="item.slug === 'home'">
+
+                        <img src="img/account.png" width="17" height="16" alt="" ng-if="item.slug === 'account'">
+                        <img src="img/booking.png" width="15" height="17" alt="" ng-if="item.slug === 'book_massage'">
+
+                        <img src="img/packages.png" width="17" height="18" alt="" ng-if="item.slug === 'packages'">
+                        <img src="img/membership.png" width="15" height="14" alt=""
+                            ng-if="item.slug === 'membership_99'">
+
+
+                        <img src="img/chair-massage.png" width="15" height="18" alt=""
+                            ng-if="item.slug === 'chair_massage'">
+
+                        <img src="img/gift-certificate.png" width="15" height="16" alt=""
+                            ng-if="item.slug === 'gift_certificate'">
+
+                        <img src="img/contact.png" width="17" height="17" alt="" ng-if="item.slug === 'conatct_us'">
+                        <img src="img/delete.png" width="17" height="17" alt="" ng-if="item.slug === 'delete_account'">
+                        <img src="img/about.png" width="14" height="18" alt="" ng-if="item.slug === 'about'">
+                        <img src="img/payment.png" width="15" height="15" alt="" ng-if="item.slug === 'payment'">
+
+                        <span>
+                            {{item.name}} </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="logout()" ng-if="session_token != null">
+                        <img src="img/log-out.png" width="16" height="16" alt="">
+                        <span> Logout </span>
+                    </menu-item>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</menu>
+<section class="form_sec_main">
+    <form method="" action="" name="">
+        <ul>
+
+            <li><input type="text" placeholder="First Name" ng-model="firstname"></li>
+            <li><input type="text" placeholder="Last Name" ng-model="lastname"></li>
+            <li><input type="text" placeholder="Email" required="required" ng-model="email"
+                    ng-pattern="/^[_a-zA-Z0-9]+(\.[_a-zA-Z0-9]+)*@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*(\.[a-zA-Z]{2,4})$/">
+            </li>
+            <li><input type="tel" placeholder="Phone" ng-model="phone" maxlength="12"></li>
+            <li><input type="text" placeholder="City" ng-model="city"></li>
+            <li><input type="text" placeholder="State" ng-model="state"></li>
+            <li><input type="date" placeholder="Possible Event Date" ng-click="selectDate()" ng-model="treatment_date"
+                  Style='Width:100%;background-color:transparent;border:none;color:white;'  ></li>
+            <li><input type="time" placeholder="Ideal Start Time" Style='Width:100%;background-color:transparent;border:none;color:white;' ng-click="selectTime()"  ng-model="treatment_time"
+                     >
+                <!-- <li>  <input  ez-timepicker="form.time" placeholder="Ideal Start Time" ng-click="selectTime()" ng-model="treatment_time" data-clock-icon-class="fa fa-clock-o" data-inc-icon-class="fa fa-chevron-up" data-dec-icon-class="fa fa-chevron-down"/></li>
+             -->
+        </ul>
+        <!--
+        <div class="select-container">
+        <p> Ideal Start Time </p>
+        <aside class="start_col"> <input type="text" placeholder="HH"> </aside>
+        <aside class="start_col"> <input type="text" placeholder="MM"> </aside>
+         <aside class="start_col"> <select> <option>AM</option>  <option>PM</option>   </select> </aside>
+        </div>-->
+
+        <ul>
+            <li><input type="tel" placeholder="Estimated Number of People" ng-model="estimatedpeople"></li>
+        </ul>
+
+        <aside class="start_col full">
+
+            <select ng-model="chair_massage_frequency_id">
+                <option value="">Frequency</option>
+                <option ng-repeat="frequenciess in frequencies" value="{{frequenciess.id }}">{{
+                    frequenciess.name }}
+                </option>
+
+            </select>
+        </aside>
+
+
+        <aside class="start_col full"><select ng-model="chair_massage_session_id">
+                <option value="">How long should each session be?</option>
+                <option ng-repeat="sessionss in sessions" value="{{sessionss.id}}">{{ sessionss.name
+                    }}
+                </option>
+
+
+            </select></aside>
+        <aside class="start_col full"><select ng-model="chair_massage_payment_option_id">
+                <option value="">Preferred payment option?</option>
+                <option ng-repeat="paymentss in payments" value="{{paymentss.id }}">{{ paymentss.name
+                    }}
+                </option>
+            </select></aside>
+
+        <ul>
+            <li><input class="small-txt" value="" type="tel" placeholder="Ideal Budget?" ng-model="idealbudget"
+                    id="myInput"></li>
+            <li><input type="text" placeholder="Comments" ng-model="comment"></li>
+        </ul>
+    </form>
+
+</section>
+<aside class="static_btn"><input type="submit" value="SUBMIT" ng-click="submitClick()"></aside>
+</body>
+
+</html>
+<div id="veil" ng-show="isLoading"></div>
+<div id="feedLoading" ng-show="isLoading"></div>

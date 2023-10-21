@@ -1,0 +1,191 @@
+<style>
+ input[type="date"]:not(.has-value):before{
+  color: white;
+  content: attr(placeholder);
+}
+
+ input[type="Time"]:not(.has-value):before{
+  color: white;
+  content: attr(placeholder);
+}
+</style>
+<header class="top-bar">
+    <div class="header_left"><a ng-click="showLeft($event)">
+            <img src="img/menu-ico.png" width="21" height="21" alt=""></a></div>
+    <div class="header_middle">
+        <h1> Intake Form </h1>
+    </div>
+    <div class="header_right"><a ng-click="massageFormBack()" class="left-previus-btn"><i
+                class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></div>
+    </div>
+</header>
+<menu visible="leftVisible" alignment="left" id="menu-left">
+    <nav class="nav-main">
+        <menu-item ng-if="session_token != null">
+            <section class="figure-container">
+                <figure class="profile-pic"><img src="{{profilePic}}" width="58" height="58" alt="">
+                </figure>
+                <figcaption class="user-detail"> {{name}} <span> {{address}} </span></figcaption>
+            </section>
+        </menu-item>
+        <section class="nav-menu">
+            <ul>
+                <!-- <li>
+                    <menu-item ng-click="home()">
+                        <img src="img/home.png" width="14" height="18" alt=""> <span> Home </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="signinregister()">
+                        <img src="img/account.png" width="17" height="16" alt="">
+                        <span> Account </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="bookmassage()">
+                        <img src="img/booking.png" width="15" height="17" alt=""> <span> Book Massage </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="packages()">
+                        <img src="img/packages.png" width="17" height="18" alt="">
+                        <span> Packages </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="membership()">
+                        <img src="img/membership.png" width="15" height="14" alt=""> <span> Membership $89 </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="chairmassage()">
+                        <img src="img/chair-massage.png" width="15" height="18" alt=""> <span> Chair massage </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="giftcertificate()">
+                        <img src="img/gift-certificate.png" width="15" height="16" alt=""> <span> Gift Certificates </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="contactus()">
+                        <img src="img/contact.png" width="17" height="17" alt="">
+                        <span> Contact Us </span>
+                    </menu-item>
+                </li>
+
+                <li>
+                    <menu-item ng-click="about()">
+                        <img src="img/about.png" width="14" height="18" alt=""> <span> About </span>
+                    </menu-item>
+                </li> -->
+                <li ng-repeat="item in home_menues">
+                    <menu-item ng-click="clickItem(item)">
+                        <img src="img/home.png" width="14" height="18" alt="" ng-if="item.slug === 'home'">
+
+                        <img src="img/account.png" width="17" height="16" alt="" ng-if="item.slug === 'account'">
+                        <img src="img/booking.png" width="15" height="17" alt="" ng-if="item.slug === 'book_massage'">
+
+                        <img src="img/packages.png" width="17" height="18" alt="" ng-if="item.slug === 'packages'">
+                        <img src="img/membership.png" width="15" height="14" alt=""
+                            ng-if="item.slug === 'membership_99'">
+
+
+                        <img src="img/chair-massage.png" width="15" height="18" alt=""
+                            ng-if="item.slug === 'chair_massage'">
+
+                        <img src="img/gift-certificate.png" width="15" height="16" alt=""
+                            ng-if="item.slug === 'gift_certificate'">
+
+                        <img src="img/contact.png" width="17" height="17" alt="" ng-if="item.slug === 'conatct_us'">
+                        <img src="img/delete.png" width="17" height="17" alt="" ng-if="item.slug === 'delete_account'">
+                        <img src="img/about.png" width="14" height="18" alt="" ng-if="item.slug === 'about'">
+                        <img src="img/payment.png" width="15" height="15" alt="" ng-if="item.slug === 'payment'">
+
+                        <span>
+                            {{item.name}} </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="logout()" ng-if="session_token != null">
+                        <img src="img/log-out.png" width="16" height="16" alt="">
+                        <span> Logout </span>
+                    </menu-item>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</menu>
+<section class="form_sec_main">
+    <form method="" action="" name="">
+        <ul>
+
+
+            <li><input type="text" placeholder="First Name" ng-model="fname"></li>
+            <li><input type="text" placeholder="Last Name" ng-model="lname"></li>
+
+            <li><input type="tel" placeholder="Phone" required="required" ng-model="number" maxlength="12"></li>
+            <li><input type="date" placeholder="Date Of Birth"   onchange="this.className=(this.value!=''?'has-value':'')"
+                    ng-model="dob"  Style='Width:100%;background-color:transparent;border:none;color:white;'  /></li>
+
+
+            <li><input type="text" placeholder="Address" ng-model="address1"></li>
+            <li><input type="text" placeholder="City" ng-model="citystate"></li>
+
+            <li><input type="text" placeholder="State" ng-model="state"></li>
+
+            <li><input type="tel" placeholder="Zip Code" ng-model="zipcode"></li>
+            <li><input type="date" placeholder="Date of Treatment"  onchange="this.className=(this.value!=''?'has-value':'')" ng-model="date" Style='Width:100%;background-color:transparent;border:none;color:white;'  >
+            </li>
+            <li><input type="time" placeholder="Time"  onchange="this.className=(this.value!=''?'has-value':'')" ng-model="time" Style='Width:100%;background-color:transparent;border:none;color:white;'  ></li>
+            <li><input type="tel" placeholder="Certificate #" ng-model="certificate"></li>
+            <li><input type="text" placeholder="Referred By" ng-model="referredby"></li>
+            <li><input type="text" placeholder="Medications you are using" ng-model="medication">
+            </li>
+            <li><input type="tel" placeholder="Floor Level" ng-model="flightwalk"></li>
+            <li><input type="text" placeholder="Parking Suggestions" ng-model="parkingsuggestion">
+            </li>
+            <li ng-if="edit == '1'"><input type="checkbox" ng-model="checkbox"> Yes, I am pregnant
+            </li>
+
+
+            <li><input type="text" placeholder="What activities/therapies have you found helpful for your lifestyle?"
+                    ng-model="activities"></li>
+            <li><input type="text" placeholder="Pets or smoking? Please Specify" ng-model="pets">
+            </li>
+
+
+            <li><input type="checkbox" id="1" ng-model="isPregnant" ng-change="isPregnantClicked(isPregnant)"
+                    ng-true-value="1" ng-false-value="0" /><label for="1">Yes, I am pregnant</label></li>
+
+            <li ng-show="isPregnant == '1'"><input type="text" placeholder="How far along are you?"
+                    ng-model="pregnant_comment"></li>
+
+
+            <li> What results do you want from your treatments?
+
+                <br /><input type="checkbox" ng-model="Decrease_Stress" id="2" ng-change="checkbox1(Decrease_Stress)"
+                    ng-true-value="4" ng-false-value="0"><label for="2"> Decrease Stress</label>
+
+                <br /><input type="checkbox" ng-model="General_Relaxation" id="3"
+                    ng-change="checkbox2(General_Relaxation)" ng-true-value="1" ng-false-value="0"> <label
+                    for="3">General Relaxation</label>
+
+                <br /><input type="checkbox" ng-model="More_Range_of_Motion" id="4"
+                    ng-change="checkbox3(More_Range_of_Motion)" ng-true-value="3" ng-false-value="0"><label for="4">
+                    More Range-of-Motion</label>
+
+                <br /><input type="checkbox" ng-model="Relief_From_Pain" id="5" ng-change="checkbox4(Relief_From_Pain)"
+                    ng-true-value="2" ng-false-value="0"> <label for="5">Relief From Pain</label>
+
+
+        </ul>
+    </form>
+</section>
+<aside class="static_btn"><input type="submit" value="SUBMIT" ng-click="massagesubmitClicked()">
+</aside>
+<div id="veil" ng-show="isLoading"></div>
+<div id="feedLoading" ng-show="isLoading"></div>

@@ -1,0 +1,21 @@
+{
+    "android": {
+        "debug": {
+            "keystore": "MassMobile.jks",
+            "storePassword": "#MassMobile@",
+            "alias": "MassMobile",
+            "password" : "#MassMobile@",
+            "keystoreType": "",
+            "packageType": "apk"
+        },
+        "release": {
+            "keystore": "MassMobile.jks",
+            "storePassword": "#MassMobile@",
+            "alias": "MassMobile",
+            "password" : "#MassMobile@",
+            "keystoreType": "",
+            "packageType": "apk"
+        }
+    }
+}
+

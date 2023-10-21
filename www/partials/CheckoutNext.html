@@ -1,0 +1,185 @@
+<header class="top-bar">
+    <div class="header_left"><a ng-click="showLeft($event)">
+            <img src="img/menu-ico.png" width="21" height="21" alt=""></a></div>
+    <div class="header_middle">
+        <h1>Checkout</h1>
+    </div>
+    <div class="header_right">
+        <a ng-click="back()" class="left-previus-btn"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a>
+        <!--    <span ng-if="session_token != null" class="cart-icon"> <i aria-hidden="true" class="fa fa-shopping-cart"></i> <span>{{cart_count}}</span> </span>-->
+    </div>
+</header>
+
+<menu visible="leftVisible" alignment="left" id="menu-left">
+    <nav class="nav-main">
+        <menu-item ng-if="session_token != null">
+            <section class="figure-container">
+                <figure class="profile-pic"><img src="{{profilePic}}" width="58" height="58" alt="">
+                </figure>
+                <figcaption class="user-detail"> {{name}} <span> {{address}} </span></figcaption>
+            </section>
+        </menu-item>
+        <section class="nav-menu">
+            <ul>
+                <!-- <li>
+                    <menu-item ng-click="home()">
+                        <img src="img/home.png" width="14" height="18" alt=""> <span> Home </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="signinregister()">
+                        <img src="img/account.png" width="17" height="16" alt="">
+                        <span> Account </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="bookmassage()">
+                        <img src="img/booking.png" width="15" height="17" alt=""> <span> Book Massage </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="packages()">
+                        <img src="img/packages.png" width="17" height="18" alt="">
+                        <span> Packages </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="membership()">
+                        <img src="img/membership.png" width="15" height="14" alt=""> <span> Membership $89 </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="chairmassage()">
+                        <img src="img/chair-massage.png" width="15" height="18" alt=""> <span> Chair massage </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="giftcertificate()">
+                        <img src="img/gift-certificate.png" width="15" height="16" alt=""> <span> Gift Certificates </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="contactus()">
+                        <img src="img/contact.png" width="17" height="17" alt="">
+                        <span> Contact Us </span>
+                    </menu-item>
+                </li>
+                <li>
+                    <menu-item ng-click="about()">
+                        <img src="img/about.png" width="14" height="18" alt=""> <span> About </span>
+                    </menu-item>
+                </li> -->
+                <li ng-repeat="item in home_menues">
+                    <menu-item ng-click="clickItem(item)">
+                        <img src="img/home.png" width="14" height="18" alt="" ng-if="item.slug === 'home'">
+
+                        <img src="img/account.png" width="17" height="16" alt="" ng-if="item.slug === 'account'">
+                        <img src="img/booking.png" width="15" height="17" alt="" ng-if="item.slug === 'book_massage'">
+
+                        <img src="img/packages.png" width="17" height="18" alt="" ng-if="item.slug === 'packages'">
+                        <img src="img/membership.png" width="15" height="14" alt=""
+                            ng-if="item.slug === 'membership_99'">
+
+
+                        <img src="img/chair-massage.png" width="15" height="18" alt=""
+                            ng-if="item.slug === 'chair_massage'">
+
+                        <img src="img/gift-certificate.png" width="15" height="16" alt=""
+                            ng-if="item.slug === 'gift_certificate'">
+
+                        <img src="img/contact.png" width="17" height="17" alt="" ng-if="item.slug === 'conatct_us'">
+                        <img src="img/delete.png" width="17" height="17" alt="" ng-if="item.slug === 'delete_account'">
+                        <img src="img/about.png" width="14" height="18" alt="" ng-if="item.slug === 'about'">
+                        <img src="img/payment.png" width="15" height="15" alt="" ng-if="item.slug === 'payment'">
+
+                        <span>
+                            {{item.name}} </span>
+                    </menu-item>
+
+                </li>
+                <li>
+                    <menu-item ng-click="logout()" ng-if="session_token != null">
+                        <img src="img/log-out.png" width="16" height="16" alt="">
+                        <span> Logout </span>
+                    </menu-item>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</menu>
+
+<section class="chkout_sec_main">
+    <div class="main">
+        <div class="container">
+            <section class="chkout">
+                <ul>
+                    <li style="    margin-bottom: 10px;"><strong> Your Order </strong></li>
+
+                    <aside>
+                        <span class="chk_item"
+                            style="width: 50%; float: left; text-align: left; padding: 5px 0 0 0;">{{pricetopay.product_name}}
+                        </span>
+                        <span class="chk_price" style="padding: 5px 0 0 0; float: right;"> ${{pricetopay.prices}}
+                        </span>
+                    </aside>
+
+                    <li style="padding-top:3px;">Gratuity
+                        <!-- <input type="number" placeholder="Gratuity" value="{{gratuity}}" ng-model="tip_price"
+                            class="pckinput" style="width:70px; float:right"> -->
+                        <input type="number" placeholder="Gratuity" value="{{gratuity}}" ng-model="tip_price"
+                            class="pckinput" style="width:70px; float:right">
+                        <!-- <input type="text" min="0" placeholder="7500" ng-model="totalClicks" required /> -->
+
+
+                    </li>
+
+                    <li style="padding-top:7px;">Travel Fee <span> ${{travel_amount}} </span></li>
+
+                    <li style="padding-top:3px;">Early or Late Fee
+                        <span> ${{early_or_late_fee}} </span>
+                    </li>
+
+                    <li class="top_line"><strong>Total<span>$
+                                {{(pricetopay.prices+travel_amount+early_or_late_fee)+tip_price}}</span></strong></li>
+                </ul>
+            </section>
+
+
+        </div>
+    </div>
+</section>
+
+
+<section class="popup" ng-show="checkOutMemberShipPopUp">
+    <div class="main">
+        <div class="popup-logo-p">
+            <div class="container">
+
+                <div style="color: white; font-size: 18px; width: 100%; margin-bottom: 15px;">
+                    <p><input type="checkbox" ng-model="checkOutMemberShipChecked"
+                            ng-click="checkUutMemberShipcheckBoxClicked()" /><span style="color: red;">*</span>Please
+                        select our Terms &&nbsp; Conidtions
+                    </p>
+
+                </div>
+
+                <p ng-bind-html="checkOutMemberShipdescription | unsafe" style="color:white;"></p>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="closearea">
+        <a class="close-pop" ng-click="checkOutMemberShipOutPopUpClose()">
+            <span class="pop_cross"> <i class="fa fa-times-circle-o" aria-hidden="true"></i> </span>
+        </a>
+    </div>
+</section>
+
+<div id="veil" ng-show="isLoading"></div>
+<div id="feedLoading" ng-show="isLoading"></div>
+
+
+<aside class="fix-footer-btn"><a ng-click="checkOut()">Place Order</a></aside>
