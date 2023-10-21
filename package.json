@@ -51,9 +51,6 @@
       "cordova-plugin-device-motion": {},
       "cordova-plugin-device-orientation": {},
       "cordova-plugin-dialogs": {},
-      "cordova-plugin-file": {
-        "ANDROIDX_WEBKIT_VERSION": "1.4.0"
-      },
       "cordova-plugin-geolocation": {
         "GPS_REQUIRED": "true"
       },
@@ -125,7 +122,8 @@
       "cordova-plugin-advanced-http": {
         "ANDROIDBLACKLISTSECURESOCKETPROTOCOLS": "SSLv3,TLSv1"
       },
-      "cordova-plugin-inappbrowser": {}
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-file": {}
     },
     "platforms": [
       "browser",
