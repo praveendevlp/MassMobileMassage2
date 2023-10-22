@@ -17,7 +17,6 @@
     "cordova-android": "^11.0.0",
     "cordova-android-play-services-gradle-release": "^4.0.0",
     "cordova-browser": "^6.0.0",
-    "cordova-ios": "^6.3.0",
     "cordova-plugin-advanced-http": "^3.3.1",
     "cordova-plugin-battery-status": "^2.0.3",
     "cordova-plugin-camera": "^6.0.0",
@@ -27,13 +26,10 @@
     "cordova-plugin-device-motion": "^2.0.1",
     "cordova-plugin-device-orientation": "^2.0.1",
     "cordova-plugin-dialogs": "^2.0.2",
-    "cordova-plugin-file": "^8.0.0",
-    "cordova-plugin-file-transfer": "github:apache/cordova-plugin-file-transfer",
+    "cordova-plugin-file": "^7.0.0",
     "cordova-plugin-geolocation": "^4.1.0",
     "cordova-plugin-globalization": "^1.11.0",
     "cordova-plugin-inappbrowser": "^5.0.0",
-    "cordova-plugin-media": "^6.1.0",
-    "cordova-plugin-media-capture": "^4.0.0",
     "cordova-plugin-network-information": "^3.0.0",
     "cordova-plugin-splashscreen": "^6.0.1",
     "cordova-plugin-vibration": "^3.1.1",
@@ -52,12 +48,13 @@
       "cordova-plugin-device-motion": {},
       "cordova-plugin-device-orientation": {},
       "cordova-plugin-dialogs": {},
+      "cordova-plugin-file": {
+        "ANDROIDX_WEBKIT_VERSION": "1.4.0"
+      },
       "cordova-plugin-geolocation": {
         "GPS_REQUIRED": "true"
       },
       "cordova-plugin-globalization": {},
-      "cordova-plugin-media": {},
-      "cordova-plugin-media-capture": {},
       "cordova-plugin-network-information": {},
       "cordova-plugin-splashscreen": {},
       "cordova-plugin-vibration": {},
@@ -119,12 +116,10 @@
         "ANDROIDX_CORE_VERSION": "1.6.+",
         "FCM_VERSION": "18.+"
       },
-      "cordova-plugin-file-transfer": {},
       "cordova-plugin-advanced-http": {
         "ANDROIDBLACKLISTSECURESOCKETPROTOCOLS": "SSLv3,TLSv1"
       },
-      "cordova-plugin-inappbrowser": {},
-      "cordova-plugin-file": {}
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "browser",
