@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.massmobile.massage" version="10.0.0" android-versionCode="10" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="10" id="com.massmobile.massage" version="10.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>MassMobileMassage</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
@@ -9,38 +9,30 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-     <preference name="AndroidInsecureFileModeEnabled" value="true" />
+    <preference name="AndroidInsecureFileModeEnabled" value="true" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
-   <plugin name="@havesource/cordova-plugin-push" spec="5.3.0" />
     <preference name="Scheme" value="http" />
-<preference name="hostname" value="localhost" />
+    <preference name="hostname" value="localhost" />
     <allow-intent href="*" />
-
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <allow-navigation href="*"/>
-  <preference name="AndroidPersistentFileLocation" value="Compatibility" />
- <preference name="AutoHideSplashScreen" value="true" />
-        <preference name="ShowSplashScreen" value="false" />
-<preference name="AndroidWindowSplashScreenAnimatedIcon" value="www/img/splash.png" />
-
-    <platform name="android">
-    <allow-intent href="market:*" />
-    <access origin="*" />
-    <allow-intent href="*" />
     <allow-navigation href="*" />
-  
- <icon src="www/img/appicon-1.png" />
-     
-      
-<preference name="GradlePluginGoogleServicesEnabled" value="true" />
- 
- <!-- Updated the version of com.google.gms.google-services -->
-<preference name="GradlePluginGoogleServicesVersion" value="4.3.10" /> 
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="ShowSplashScreen" value="false" />
+    <preference name="AndroidWindowSplashScreenAnimatedIcon" value="www/img/splash.png" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <access origin="*" />
+        <allow-intent href="*" />
+        <allow-navigation href="*" />
+        <icon src="www/img/appicon-1.png" />
+        <preference name="GradlePluginGoogleServicesEnabled" value="true" />
+        <preference name="GradlePluginGoogleServicesVersion" value="4.3.10" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
