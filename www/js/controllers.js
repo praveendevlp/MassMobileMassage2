@@ -3,7 +3,7 @@ var MassMobileMassageAppControllers = angular.module("MassMobileMassageAppContro
 var baseUrl = 'https://www.massmobilemassage.com/'
 
 MassMobileMassageAppControllers.controller("indexController", function ($scope, $http, $rootScope, $location, $window, $cordovaNetwork, $cordovaDialogs) {
-
+alert("k");
   localStorage.setItem("page_id", "1");
 
   $scope.session_token = localStorage.getItem("session_token");
@@ -40,12 +40,12 @@ MassMobileMassageAppControllers.controller("indexController", function ($scope, 
           // callback success
         });
     } else {
-      $cordovaDialogs.alert('There is some problem. Please try again later.', '', 'OK')
+      $cordovaDialogs.alert('There is some problem. Please check and try again later.', '', 'OK')
         .then(function () {
           // callback success
         });
     }
-    console.log(" failure message: " + JSON.stringify({
+    console.log(" failure message 2: " + JSON.stringify({
       data: data
     }));
   });
