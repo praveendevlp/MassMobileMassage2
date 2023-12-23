@@ -40,6 +40,7 @@
 
      <resource-file src="GoogleService-Info.plist" target="GoogleService-Info.plist"/>
      <access origin="*" />
+   
         <allow-intent href="*" />
         <allow-navigation href="*" />
         <allow-intent href="itms:*" />
