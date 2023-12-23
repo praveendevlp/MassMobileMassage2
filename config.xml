@@ -8,7 +8,8 @@
         Apache Cordova Team
     </author>
     <content src="index.html" />
-    <access origin="*" />
+  <access origin="https://www.massmobilemassage.com" requires-certificate-transparency='false' allows-arbitrary-loads-in-web-content='true'/>
+
     <preference name="AndroidInsecureFileModeEnabled" value="true" />
     <preference name="AndroidPersistentFileLocation" value="Compatibility" />
     <preference name="Scheme" value="http" />
@@ -36,8 +37,13 @@
     </platform>
     <platform name="ios">
 
+<<<<<<< HEAD
      <resource-file src="GoogleService-Info.plist" target="GoogleService-Info.plist"/>
 
+=======
+        
+     <resource-file src="GoogleService-Info.plist" target="GoogleService-Info.plist"/>
+>>>>>>> 3460889e0a19aea588302c9145a5b57a7ba93795
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
