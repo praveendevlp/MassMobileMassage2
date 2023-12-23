@@ -32,7 +32,7 @@ alert("k");
 
 alert("failed-status-"+status+"  config-"+config+" headers-"+headers);
 
-    $rootScope.setLoading(fale);
+    $rootScope.setLoading(fasle);
     //alert(data+"  "+status+" "+" "+headers+" "+JSON.stringify(config)+" "+baseUrl+ 'rest_pages.json');
     if (!$cordovaNetwork.isOnline()) {
       $cordovaDialogs.alert('There is no network connectivity. Please check your network connection.', '', 'OK')
