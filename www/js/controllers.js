@@ -40,7 +40,7 @@ alert("failed-status-"+status+"  config-"+config+" headers-"+headers);
           // callback success
         });
     } else {
-      $cordovaDialogs.alert('There is some problem. Please try again later.', '', 'OK')
+      $cordovaDialogs.alert('There is some problem. Please check and try again later.', '', 'OK')
         .then(function () {
           // callback success
         });

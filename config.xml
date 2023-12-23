@@ -35,8 +35,12 @@
         <preference name="GradlePluginGoogleServicesVersion" value="4.3.10" />
     </platform>
     <platform name="ios">
+<<<<<<< HEAD
             <icon src="www/img/appicon-1.png" />
      <resource-file src="GoogleService-Info.plist" target="GoogleService-Info.plist"/>
+=======
+        <resource-file src="GoogleService-Info.plist" target="GoogleService-Info.plist"/>
+>>>>>>> 1b3721a19b8579821ff70a58255d1a1b2d5cc6e5
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
