@@ -24,7 +24,7 @@ alert("k");
     
     res.success(function (data, status, headers, config) {
     
-    //alert(JSON.stringify(data));
+    alert(JSON.stringify(data));
       $scope.home_menues = data.response.data.home_menues;
     });
   });
@@ -32,7 +32,7 @@ alert("k");
 
 alert("failed-status-"+status+"  config-"+config+" headers-"+headers);
 
-    $rootScope.setLoading(fasle);
+    $rootScope.setLoading(false);
     //alert(data+"  "+status+" "+" "+headers+" "+JSON.stringify(config)+" "+baseUrl+ 'rest_pages.json');
     if (!$cordovaNetwork.isOnline()) {
       $cordovaDialogs.alert('There is no network connectivity. Please check your network connection.', '', 'OK')
