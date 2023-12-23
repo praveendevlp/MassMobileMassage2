@@ -3,7 +3,7 @@ var MassMobileMassageAppControllers = angular.module("MassMobileMassageAppContro
 var baseUrl = 'https://www.massmobilemassage.com/'
 
 MassMobileMassageAppControllers.controller("indexController", function ($scope, $http, $rootScope, $location, $window, $cordovaNetwork, $cordovaDialogs) {
-
+alert("k");
   localStorage.setItem("page_id", "1");
 
   $scope.session_token = localStorage.getItem("session_token");
@@ -30,9 +30,9 @@ MassMobileMassageAppControllers.controller("indexController", function ($scope, 
   });
   res.error(function (data, status, headers, config) {
 
+alert("failed-status-"+status+"  config-"+config+" headers-"+headers);
 
-
-    $rootScope.setLoading(false);
+    $rootScope.setLoading(fale);
     //alert(data+"  "+status+" "+" "+headers+" "+JSON.stringify(config)+" "+baseUrl+ 'rest_pages.json');
     if (!$cordovaNetwork.isOnline()) {
       $cordovaDialogs.alert('There is no network connectivity. Please check your network connection.', '', 'OK')
@@ -45,7 +45,7 @@ MassMobileMassageAppControllers.controller("indexController", function ($scope, 
           // callback success
         });
     }
-    console.log(" failure message: " + JSON.stringify({
+    console.log(" failure message 2: " + JSON.stringify({
       data: data
     }));
   });
