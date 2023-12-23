@@ -37,13 +37,10 @@
     </platform>
     <platform name="ios">
 
-<<<<<<< HEAD
+
      <resource-file src="GoogleService-Info.plist" target="GoogleService-Info.plist"/>
 
-=======
-        
-     <resource-file src="GoogleService-Info.plist" target="GoogleService-Info.plist"/>
->>>>>>> 3460889e0a19aea588302c9145a5b57a7ba93795
+
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
