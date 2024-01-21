@@ -36,7 +36,7 @@
         <preference name="GradlePluginGoogleServicesVersion" value="4.3.10" />
     </platform>
     <platform name="ios">
-
+ <preference name="InterceptRemoteRequests" value="all" />
 
      <resource-file src="GoogleService-Info.plist" target="GoogleService-Info.plist"/>
      <access origin="*" />
