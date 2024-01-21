@@ -13,6 +13,7 @@
   "author": "Apache Cordova Team",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@globules-io/cordova-plugin-ios-xhr": "github:globules-io/cordova-plugin-ios-xhr",
     "@havesource/cordova-plugin-push": "github:havesource/cordova-plugin-push",
     "cordova-android": "^11.0.0",
     "cordova-android-play-services-gradle-release": "^4.0.0",
@@ -121,7 +122,8 @@
       "@havesource/cordova-plugin-push": {
         "IOS_FIREBASE_MESSAGING_VERSION": "~> 8.1.1"
       },
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "@globules-io/cordova-plugin-ios-xhr": {}
     },
     "platforms": [
       "browser",

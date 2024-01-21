@@ -36,12 +36,16 @@
         <preference name="GradlePluginGoogleServicesVersion" value="4.3.10" />
     </platform>
     <platform name="ios">
-   <preference name="scheme" value="app" />
-   <preference name="hostname" value="localhost" /> 
+  
 
      <resource-file src="GoogleService-Info.plist" target="GoogleService-Info.plist"/>
      <access origin="*" />
-   
+     <preference name="AllowUntrustedCerts"  value="true" />
+  <preference name="InterceptRemoteRequests" value="all" />
+  <preference name="allowFileAccessFromFileURLs" value="true" />
+  <preference name="allowUniversalAccessFromFileURLs" value="true" />
+
+
         <allow-intent href="*" />
         <allow-navigation href="*" />
         <allow-intent href="itms:*" />
