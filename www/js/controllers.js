@@ -13,7 +13,7 @@ MassMobileMassageAppControllers.controller("indexController", function ($scope, 
   $scope.profilePic = localStorage.getItem("user_image");
   $scope.cart_count = localStorage.getItem("cart_count");
   $rootScope.setLoading(true);
-
+alert(baseUrl + 'rest_pages.json');
   var res = $http.get(baseUrl + 'rest_pages.json');
   
   res.success(function (data, status, headers, config) {
