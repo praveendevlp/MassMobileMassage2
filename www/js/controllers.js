@@ -16,9 +16,10 @@ MassMobileMassageAppControllers.controller("indexController", function ($scope, 
   
   var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
+  alert( xhttp.responseText);
     if (this.readyState == 4 && this.status == 200) {
        // Typical action to be performed when the document is ready:
-     alert( xhttp.responseText);
+    
     }
 };
 xhttp.open("GET", baseUrl + 'rest_pages.json', true);
