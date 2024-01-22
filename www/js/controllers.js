@@ -14,7 +14,7 @@ MassMobileMassageAppControllers.controller("indexController", function ($scope, 
   $scope.cart_count = localStorage.getItem("cart_count");
   $rootScope.setLoading(true);
 alert(baseUrl + 'rest_pages.json');
-  var res = $http.get(baseUrl + 'rest_pages.json');
+  var res = $http.get( 'https://get.geojs.io/v1/ip/country.json?ip=8.8.8.8');
   
   res.success(function (data, status, headers, config) {
   
