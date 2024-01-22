@@ -13,11 +13,10 @@ MassMobileMassageAppControllers.controller("indexController", function ($scope, 
   $scope.profilePic = localStorage.getItem("user_image");
   $scope.cart_count = localStorage.getItem("cart_count");
   $rootScope.setLoading(true);
-alert(baseUrl + 'rest_pages.json');
+
   var res = $http.get(baseUrl + 'rest_pages.json');
-//var res = $http.get( 'https://get.geojs.io/v1/ip/country.json?ip=8.8.8.8');
+  
   res.success(function (data, status, headers, config) {
-  alert(JSON.stringify(data);
     console.log("responseHomepage: " + JSON.stringify(data));
     $rootScope.setLoading(false);
     $scope.value = data.response.data.home_links;
@@ -25,13 +24,13 @@ alert(baseUrl + 'rest_pages.json');
     
     res.success(function (data, status, headers, config) {
     
-  //  alert(JSON.stringify(data));
+    alert(JSON.stringify(data));
       $scope.home_menues = data.response.data.home_menues;
     });
   });
   res.error(function (data, status, headers, config) {
 
-alert("failing-status-"+status+"  config-"+config+" headers-"+headers);
+alert("failed-status-"+status+"  config-"+config+" headers-"+headers);
 
     $rootScope.setLoading(false);
     //alert(data+"  "+status+" "+" "+headers+" "+JSON.stringify(config)+" "+baseUrl+ 'rest_pages.json');
