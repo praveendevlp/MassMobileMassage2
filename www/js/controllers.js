@@ -22,7 +22,7 @@ xhttp.onreadystatechange = function() {
      // alert(  "xhr json response-"JSON.stringify(xhttp.responseText));
     }
 };
-xhttp.open("GET", baseUrl + 'rest_pages.json', true);
+xhttp.open("GET", 'https://get.geojs.io/v1/ip/country.json?ip=8.8.8.8', true);
 xhttp.send();
 alert(baseUrl + 'rest_pages.json');
   var res = $http.get( 'https://get.geojs.io/v1/ip/country.json?ip=8.8.8.8');
