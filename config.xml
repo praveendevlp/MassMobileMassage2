@@ -40,10 +40,7 @@
 
      <resource-file src="GoogleService-Info.plist" target="GoogleService-Info.plist"/>
      <access origin="*" />
-     <preference name="AllowUntrustedCerts"  value="true" />
-  <preference name="InterceptRemoteRequests" value="all" />
-  <preference name="allowFileAccessFromFileURLs" value="true" />
-  <preference name="allowUniversalAccessFromFileURLs" value="true" />
+    
 
 
         <allow-intent href="*" />
