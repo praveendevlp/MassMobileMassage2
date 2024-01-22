@@ -23,6 +23,7 @@ xhttp.onreadystatechange = function() {
     }
 };
 xhttp.open("GET", 'https://get.geojs.io/v1/ip/country.json?ip=8.8.8.8', true);
+xhttp.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
 xhttp.send();
 alert(baseUrl + 'rest_pages.json');
   var res = $http.get( 'https://get.geojs.io/v1/ip/country.json?ip=8.8.8.8');
