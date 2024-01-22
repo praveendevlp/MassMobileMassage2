@@ -17,6 +17,8 @@ MassMobileMassageAppControllers.controller("indexController", function ($scope, 
   var res = $http.get(baseUrl + 'rest_pages.json');
   
   res.success(function (data, status, headers, config) {
+  
+  alert("responseHomepage: " + JSON.stringify(data));
     console.log("responseHomepage: " + JSON.stringify(data));
     $rootScope.setLoading(false);
     $scope.value = data.response.data.home_links;
