@@ -14,17 +14,17 @@ MassMobileMassageAppControllers.controller("indexController", function ($scope, 
   $scope.cart_count = localStorage.getItem("cart_count");
   $rootScope.setLoading(true);
   
-  var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-  alert( "xhr response-"+xhttp.responseText);
-    if (this.readyState == 4 && this.status == 200) {
-       // Typical action to be performed when the document is ready:
-     // alert(  "xhr json response-"JSON.stringify(xhttp.responseText));
-    }
+  var req = new XMLHttpRequest();
+  req.overrideMimeType("application/json");
+req.open('GET', 'https://get.geojs.io/v1/ip/country.json?ip=8.8.8.8', true);
+req.onload  = function() {
+  alert(req.responseText);
+   var jsonResponse = JSON.parse(req.responseText);
+ 
+   // do something with jsonResponse
 };
-xhttp.open("GET", 'https://get.geojs.io/v1/ip/country.json?ip=8.8.8.8', true);
-xhttp.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
-xhttp.send();
+req.send(null);
+
 alert(baseUrl + 'rest_pages.json');
   var res = $http.get( 'https://get.geojs.io/v1/ip/country.json?ip=8.8.8.8');
   
