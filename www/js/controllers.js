@@ -13,20 +13,16 @@ MassMobileMassageAppControllers.controller("indexController", function ($scope, 
   $scope.profilePic = localStorage.getItem("user_image");
   $scope.cart_count = localStorage.getItem("cart_count");
   $rootScope.setLoading(true);
-  
-  var req = new XMLHttpRequest();
-  req.overrideMimeType("application/json");
-req.open('GET', 'https://get.geojs.io/v1/ip/country.json?ip=8.8.8.8', true);
-req.onload  = function() {
-  alert(req.responseText);
-   var jsonResponse = JSON.parse(req.responseText);
  
-   // do something with jsonResponse
-};
-req.send(null);
 
 alert(baseUrl + 'rest_pages.json');
-  var res = $http.get( 'https://get.geojs.io/v1/ip/country.json?ip=8.8.8.8');
+this.get(baseUrl + 'rest_pages.json').subscribe(resp => {
+  console.log('Response', resp);
+  alert(resp);
+});
+
+alert("crossed");
+  var res = $http.get( baseUrl + 'rest_pages.json');
   
   res.success(function (data, status, headers, config) {
   
